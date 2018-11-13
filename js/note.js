@@ -59,7 +59,7 @@ var note = {
         var theList = "";
         console.log('summaryOfList(), len: ', len);
         for ( var i = 0; i < len; ++i ) {
-            theList = theList + "<div class='thinBorder textPad'>" + localStore.key( i ) +
+            theList = theList + "<div class='thinBorder truncate textPad'>" + localStore.key( i ) +
                                 "<span class='thinBorder truncate textPad'>" + localStore.get(localStore.key(i)) +
                                 "</span>" +
                                 "</div>";
@@ -76,7 +76,7 @@ var note = {
         console.log('all(), len: ', len);
         for ( var i = 0; i < len; ++i ) {
             allNotes = allNotes + "<div class='thinBorder textPad dbKey'>" + localStore.key( i ) + "</div>" +
-                                "<div class='thinBorder textPad'>" + localStore.get(localStore.key(i)) + "</div>";
+                                  "<div class='thinBorder textPad'>" + localStore.get(localStore.key(i)) + "</div>";
             console.log(localStore.key( i ),  localStore.get(localStore.key(i)));
         }
         $('#listAll').html(allNotes);
