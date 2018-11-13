@@ -7,11 +7,15 @@ var app = {
     isCameraAvailable : false,
     isCordova   : false,
 
+
+    exit : function () {
+        navigator.app.exitApp();
+    },
     //
     hook : function () {
-
         $('#allButton').on(app.targetEvent, note.all);
         $('#clearButton').on(app.targetEvent, function() { note.clear() });
+        $('#exitButton').on(app.targetEvent, app.exit);
         $('#keysButton').on(app.targetEvent, note.getKeys);
         $('#saveButton').on(app.targetEvent, note.handleInput);
         $('#summaryButton').on(app.targetEvent, note.summaryOfList);
@@ -45,5 +49,7 @@ var app = {
         document.getElementById('isCordova').innerHTML               = app.isCordova;
         document.getElementById('isCordova').style.backgroundColor   = '#ccffcc'; // greenish color
         document.getElementById('isCameraAvailable').innerHTML       = app.isCameraAvailable;
+        //
+        document.getElementById('exitButton').class = '';
     }
 };

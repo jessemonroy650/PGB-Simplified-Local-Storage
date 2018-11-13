@@ -10,8 +10,10 @@
 #noteNote {}
 #allButton {cursor:pointer;}
 #clearButton {cursor:pointer;}
+#exitButton {cursor:pointer;float:right;}
 #keysButton {cursor:pointer;}
 #saveButton {cursor:pointer;}
 #summaryButton {cursor:pointer;}
 
 .dbKey {background-color:#ccffcc;}
+
