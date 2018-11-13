@@ -7,7 +7,7 @@
         <!-- https://build.phonegap.com/current-support -->
         <preference name="phonegap-version" value="cli-7.0.1" />
 
-        <name>implified Local Storage</name>
+        <name>Simplified Local Storage</name>
         <description>A "Phonegap Build" Simplified using localStorage</description>
         <author href="http://bsdmasterindex.com" email="jessemonroy650@yahoo.com">
         Jesse Monroy

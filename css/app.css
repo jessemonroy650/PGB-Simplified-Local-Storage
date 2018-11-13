@@ -4,6 +4,7 @@
 .truncate {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 .thinBorder {border:1px black solid;}
 .textPad {padding:0.2em}
+.spacer {padding:0.5em;}
 
 #notesWrapper {}
 #noteNote {}
