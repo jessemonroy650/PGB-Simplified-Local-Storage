@@ -1,9 +1,16 @@
 * {margin:0;padding:0;}
 #appIcon {height:48px;width:48px;}
 #isCordova {background-color:#ffcccc;}
-
-
+.truncate {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.thinBorder {border:1px black solid;}
+.textPad {padding:0.2em}
 
 #notesWrapper {}
 #noteNote {}
-#saveButton {}
+#allButton {cursor:pointer;}
+#clearButton {cursor:pointer;}
+#keysButton {cursor:pointer;}
+#saveButton {cursor:pointer;}
+#summaryButton {cursor:pointer;}
+
+.dbKey {background-color:#ccffcc;}

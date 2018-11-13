@@ -1,8 +1,35 @@
 //
 //
 var note = {
-    version : '0.6.0',
+    version : '0.8.0',
+    keys    : [],
 
+    //
+    //      C  R  U  D
+    //
+    create : function (key, text) {
+        localStore.put(key, text);
+    },
+    //
+    read : function (key) {
+        return localStore.get(key);
+    },
+    //
+    update :  function (id, key, value) {
+        var obj = {};
+        obj.id    = id;
+        obj.key   = key;
+        obj.value = value;
+        return localStore.update(obj);
+    },
+    //
+    delete : function (key) {
+        localStore.remove(key);
+    },
+    //
+    //
+    // RRR - Not Used at this time
+    updateRecord : function () {},
     //
     handleInput : function (eventContext) {
         var epoch   = Date.now();
@@ -13,23 +40,52 @@ var note = {
 
         console.log('note: ' + theData);
         $('#noteNote').val('');
-        note.store(epoch, theData);
-    },
-    //
-    store : function (key, text) {
-        localStore.put(key, text);
-    },
-    get : function (key) {
-        return localStore.get(key);
+        note.create(epoch, theData);
     },
     //
     getKeys : function () {
-        console.log('getKeys()');
+        var     len = localStore.len()
         var theList = "";
-        for ( var i = 0, len = localStore.len(); i < len; ++i ) {
-            theList = theList + localStore.key( i ) + "<br>";
+        console.log('getKeys(), len: ', len);
+        note.keys = [];
+        for ( var i = 0; i < len; ++i ) {
+            note.keys.push(localStore.key( i ));
+        }
+        $('#listOfKeys').html(note.keys.toString());
+    },
+    //
+    summaryOfList : function () {
+        var     len = localStore.len()
+        var theList = "";
+        console.log('summaryOfList(), len: ', len);
+        for ( var i = 0; i < len; ++i ) {
+            theList = theList + "<div class='thinBorder textPad'>" + localStore.key( i ) +
+                                "<span class='thinBorder truncate textPad'>" + localStore.get(localStore.key(i)) +
+                                "</span>" +
+                                "</div>";
             console.log(localStore.key( i ),  localStore.get(localStore.key(i)));
         }
-        $('#listOfKeys').html(theList);
+        $('#listSummary').html(theList);
+    },
+    //
+    //
+    //
+    all : function () {
+        var     len = localStore.len()
+        var allNotes = "";
+        console.log('all(), len: ', len);
+        for ( var i = 0; i < len; ++i ) {
+            allNotes = allNotes + "<div class='thinBorder textPad dbKey'>" + localStore.key( i ) + "</div>" +
+                                "<div class='thinBorder textPad'>" + localStore.get(localStore.key(i)) + "</div>";
+            console.log(localStore.key( i ),  localStore.get(localStore.key(i)));
+        }
+        $('#listAll').html(allNotes);
+    },
+    //
+    clear : function () {
+        $('#listOfKeys').html('');
+        $('#listSummary').html('');
+        note.keys = [];
+        return localStore.clear();
     }
 };

@@ -9,8 +9,12 @@ var app = {
 
     //
     hook : function () {
-        $('#saveButton').on(app.targetEvent, note.handleInput);
+
+        $('#allButton').on(app.targetEvent, note.all);
+        $('#clearButton').on(app.targetEvent, function() { note.clear() });
         $('#keysButton').on(app.targetEvent, note.getKeys);
+        $('#saveButton').on(app.targetEvent, note.handleInput);
+        $('#summaryButton').on(app.targetEvent, note.summaryOfList);
     },
     //
     onDOMContentLoaded : function () {
