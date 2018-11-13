@@ -47,6 +47,6 @@ var app = {
         document.getElementById('isCordova').style.backgroundColor   = '#ccffcc'; // greenish color
         document.getElementById('isCameraAvailable').innerHTML       = app.isCameraAvailable;
         //
-        document.getElementById('exitButton').class = 'textPad';
+        document.getElementById('exitButton').classList.toggle("hidden", false);
     }
 };
